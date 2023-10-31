@@ -1,0 +1,42 @@
+@if $input_range_colored__isloaded == true {
+
+.input-range {
+	// script uses these variables as default to paint over track parts
+	--track-color-start: green; // use #{} with SCSS variables
+	--track-color-end: darkred;
+	// transform: rotate(-90deg); // vertical orientation
+	font-size: 0;
+	input {
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+		-webkit-appearance: none;
+		background-color: transparent;
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			width: 6px;
+			height: 16px;
+			background-color: #fff;
+			border-radius: 8px;
+			margin-top: -3px;
+		}
+		&::-webkit-slider-runnable-track {
+			height: 10px;
+			border-radius: 10px;
+		}
+		&::-moz-range-thumb {
+			width: 6px;
+			height: 16px;
+			background-color: #fff;
+			border-radius: 8px;
+			margin-top: -3px;
+			border: none;
+		}
+		&::-moz-range-track {
+			height: 10px;
+			border-radius: 10px;
+		}
+	}
+}
+
+} // end @if

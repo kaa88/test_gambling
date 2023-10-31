@@ -1,0 +1,60 @@
+@if $input_file__isloaded == true {
+
+.input-file {
+	&__button {
+		display: inline-block;
+		position: relative; // REQ!
+		overflow: hidden; // REQ!
+		input {
+			position: absolute; // REQ!
+			top: -100%; // REQ!
+			left: 0; // REQ!
+			width: 100%; // REQ!
+			height: 200%; // REQ!
+			font-size: 0; // REQ!
+			opacity: 0; // REQ!
+			cursor: pointer; // REQ!
+		}
+		button {
+			padding: 0 10px;
+			height: 30px;
+			border-radius: 10px;
+			background-color: lightgreen;
+			transition: all $timer-hover;
+		}
+		input:hover + button {
+			background-color: mediumseagreen;
+		}
+	}
+	&__preview {
+		position: relative;
+		width: 150px;
+		font-size: 0;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	&__preview-img {
+		width: 100%;
+	}
+	&__preview-clean-btn {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		width: 20px;
+		height: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		background-color: #fff;
+		cursor: pointer;
+		user-select: none;
+		svg {
+			width: 50%;
+			height: 50%;
+			fill: #333;
+		}
+	}
+}
+
+} // end @if

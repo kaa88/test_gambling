@@ -1,0 +1,4 @@
+Options -Indexes
+php_value upload_max_filesize 2M
+php_value post_max_size 3M
+php_value memory_limit 10M

@@ -1,0 +1,710 @@
+<!-- ШАБЛОНЫ HTML (по алфавиту) ------------------------------>
+
+<!-- 404 content -->
+<div class="main__p404-content p404-content">
+	<p class="p404-content__text">404</p>
+	<p class="p404-content__text">Page Not Found</p>
+	<p class="p404-content__text">Sorry, but the page you were trying to view does not exist.</p>
+	<a class="p404-content__link" href="index.html">Go to Homepage</a>
+</div>
+
+
+<!-- Accordion (css version) -->
+<div class="css-accordion">
+	<input type="radio" name="accordion-radio" id="accordion-radio-1" checked>
+	<label class="css-accordion__item" for="accordion-radio-1">
+		<span class="css-accordion__item-header">Header</span>
+		<span class="css-accordion__item-content">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum sint animi perferendis earum cupiditate ea, nemo, debitis nisi quaerat adipisci!
+		</span>
+	</label>
+	<input type="radio" name="accordion-radio" id="accordion-radio-2">
+	<label class="css-accordion__item" for="accordion-radio-2">
+		<span class="css-accordion__item-header">Header</span>
+		<span class="css-accordion__item-content">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+		</span>
+	</label>
+	<input type="radio" name="accordion-radio" id="accordion-radio-3">
+	<label class="css-accordion__item" for="accordion-radio-3">
+		<span class="css-accordion__item-header">Header</span>
+		<span class="css-accordion__item-content">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum sint animi perferendis earum cupiditate ea, nemo, debitis nisi quaerat adipisci! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+		</span>
+	</label>
+</div>
+
+
+<!-- Accordion (js version) -->
+<div class="js__accordion accordion">
+	<div class="accordion__item">
+		<div class="accordion__item-header">Header</div>
+		<div class="accordion__item-content">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum sint animi perferendis earum cupiditate ea, nemo, debitis nisi quaerat adipisci!
+		</div>
+	</div>
+	<div class="accordion__item">
+		<div class="accordion__item-header">Header</div>
+		<div class="accordion__item-content">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+		</div>
+	</div>
+	<div class="accordion__item">
+		<div class="accordion__item-header">Header</div>
+		<div class="accordion__item-content">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum sint animi perferendis earum cupiditate ea, nemo, debitis nisi quaerat adipisci! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+		</div>
+	</div>
+</div>
+
+
+<!-- Breadcrumbs (хлебные крошки) -->
+<nav class="banner__breadcrumbs breadcrumbs">
+	<a class="breadcrumbs__link" href="index.html">Home</a>
+	<span class="breadcrumbs__devider">></span>
+	<a class="breadcrumbs__link" href="activities.html">Lorem ipsum</a>
+	<span class="breadcrumbs__devider">></span>
+	<span class="breadcrumbs__this --collapsed">Dolor sit amet consectetur</span>
+</nav>
+
+
+<!-- Copyright -->
+<div class="copyright-content">
+	<div class="copyright-content__anchor" id="copyright-en"></div>
+	<div class="copyright-content__anchor" id="copyright-ru"></div>
+	<div class="copyright-content__wrapper">
+		<div class="copyright-content__slide">
+			<p class="copyright-content__title">
+				<span>
+					Copyright
+				</span>
+				<a href="#copyright-ru">RU</a>
+			</p>
+			<p class="copyright-content__text">
+				This site was created solely for educational purposes and is not a commercial project. The layout of this site was taken from third-party designers (developers) or from publicly available sources.
+			</p>
+			<p class="copyright-content__text">
+				If you are the author of this layout, write to me by <a class="copyright-content__mail" href="mailto:dre021088@gmail.com">email</a> and I will post a link with your contacts below.
+			</p>
+		</div>
+		<div class="copyright-content__slide">
+			<p class="copyright-content__title">
+				<span>
+					Авторские права
+				</span>
+				<a href="#copyright-en">EN</a>
+			</p>
+			<p class="copyright-content__text">
+				Данный сайт создан исключительно в образовательных целях и не является коммерческим проектом. Макет для верстки данного сайта был взят у сторонних дизайнеров (разработчиков) или из общедоступных источников.
+			</p>
+			<p class="copyright-content__text">
+				Если Вы являетесь автором данного макета, напишите мне на <a class="copyright-content__mail" href="mailto:dre021088@gmail.com">почту</a>, и я размещу ссылку с вашими контактами ниже.
+			</p>
+		</div>
+	</div>
+</div>
+
+
+<!-- Form -->
+<form class="form form--contact" name="contact-form" action="#">
+	<!-- every field (including form itself) must have 'name' attr, otherwise script will skip it -->
+	<!-- add 'required' and 'required-one' classes to native tags (input, select, etc.) -->
+	<div class="form__report" for="main"></div>
+	<!-- there is a multi-report message support -->
+	<!-- you can place 1 main report and/or (or only) several minor reports below each input -->
+	<!-- use attr 'for' with a value of 'name' of the linked field (e.g. for="email") -->
+	<input class="form__name required" type="text" name="name" placeholder="Name">
+	<div class="form__report" for="name"></div>
+	<input class="form__email" type="text" name="email" placeholder="Email">
+	<div class="form__report" for="email"></div>
+	<input class="form__phone" type="text" name="phone" placeholder="Phone">
+	<div class="form__report" for="phone"></div>
+	<textarea class="form__message" name="message" placeholder="Message"></textarea>
+	<div class="form__report" for="message"></div>
+
+	<button class="form__button" type="submit">
+		Submit
+		<span class="form__send-progress">
+			<span>
+				<i></i><i></i><i></i>
+			</span>
+		</span>
+	</button>
+	<!-- send-progress can be placed here -->
+</form>
+
+
+<!-- Input_checkbox -->
+<div class="checkbox">
+	<input class="" type="checkbox" id="checkbox-1" name="form-checkbox-checked" data-default-checked="false">
+	<!-- do not type 'checked' attr, use 'data-default-checked' (true or false) -->
+	<label for="checkbox-1">
+		<span class="label-box"></span>
+		<span class="label-text">Checkbox</span>
+	</label>
+</div>
+
+
+<!-- Input_file -->
+<div class="input-file">
+	<div class="input-file__button">
+		<input type="file" name="file">
+		<!-- you can set desired formats inside 'input': accept=".jpg" -->
+		<button>Choose file</button>
+	</div>
+	<div class="input-file__info" data-default="No file selected">No file selected</div>
+	<!-- 'data-default' is a message that will be set up after cleaning -->
+	<div class="input-file__preview">
+		<div class="input-file__preview-clean-btn">
+			<svg><use href="media/img/sprite.svg#icon-cross-bold"></use></svg>
+		</div>
+		<img class="input-file__preview-img" src="" alt="">
+	</div>
+</div>
+
+
+<!-- Input_radio -->
+<div class="radio">
+	<input type="radio" id="radio1" name="form-radio" value="radio 1" checked>
+	<label for="radio1">
+		<span class="label-box"></span>
+		<span class="label-text">Radio 1</span>
+	</label>
+	<input type="radio" id="radio2" name="form-radio" value="radio 2">
+	<label for="radio2">
+		<span class="label-box"></span>
+		<span class="label-text">Radio 2</span>
+	</label>
+</div>
+
+
+<!-- Input_range_colored -->
+<div class="input-range">
+	<input type="range" name="range" value="20" min="0" max="100" step="1">
+</div>
+
+
+<!-- Input_range_double (js version with 1 or 2 thumbs) -->
+<div class="input-range-double" name="range"></div>
+<input class="ird-result1" type="number">
+<input class="ird-result2" type="number">
+
+
+<!-- Microformats hCard (микроразметка для поисковиков - контакты, пример Яндекса) -->
+<div class="vcard">
+	<div>
+		<span class="category">Кафе</span>
+		<span class="fn org">Ромашка</span>
+	</div>
+	<div class="adr">
+		<span class="locality">г. Солнечный</span>,
+		<span class="street-address">просп. Романтиков, д. 21</span>
+	</div>
+	<div>Телефон: <span class="tel">+7 (890) 123-45-67</span></div>
+	<div>Мы работаем <span class="workhours">ежедневно с 11:00 до 24:00</span>
+		<span class="url">
+			<span class="value-title" title="http://www.romashka-cafe.ru"> </span>
+		</span>
+	</div>
+</div>
+
+
+<!-- Simple counter -->
+<div class="simple-counter">
+	<button class="test-counter-button">Counter</button>
+	<p class="test-counter">0</p>
+</div>
+
+
+<!-- Pagination -->
+<div class="pagination" data-active="5" data-total="15"></div>
+
+
+<!-- Parallax -->
+<div class="some-container-or-body-tag">
+	<div class="parallax">
+		<img src="media/img/_DUMMY.jpg" alt="">
+	</div>
+	<div class="scrolling-content">
+		<p>Parallax.<br>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Voluptas laborum ipsum eaque, voluptatem amet magni earum consectetur vel alias temporibus odio incidunt quia exercitationem, consequatur labore iusto quo nostrum soluta. Nostrum, non ducimus sapiente quis perspiciatis in velit eius dolor ipsa minima voluptatibus deserunt autem est excepturi neque perferendis obcaecati corporis ipsum, veritatis, aperiam enim optio vel numquam.</p>
+	</div>
+</div>
+
+
+<!-- Picture -->
+<picture>
+	<source media="(max-width: 768px)" srcset="media/img/_DUMMY-s.jpg, media/img/_DUMMY-s@2x.jpg 2x">
+	<img src="media/img/_DUMMY.jpg" srcset="media/img/_DUMMY@2x.jpg 2x" alt="" loading="lazy">
+	<!-- Один тэг img тоже работает -->
+</picture>
+
+
+<!-- Popup -->
+<div class="popup scroll-lock-item-m">
+	<div class="popup__close-btn">x</div>
+	<div class="popup__content">popup</div> <!-- можно заменить на другой контейнер -->
+</div>
+
+
+<!-- Position marker -->
+<span class="position-marker"></span>
+<!-- make sure the parent is positioned because the 'marker' has 'position: absolute' -->
+
+
+<!-- Select -->
+<div class="select">
+	<select class="" name="select"> <!-- place form's 'required' classs here -->
+		<option value="" disabled selected>Select...</option> <!-- value '' is required for form check -->
+		<option value="opt 1">option 1</option>
+		<option value="opt 2">option 2</option>
+		<option value="opt 3">option 3</option>
+	</select>
+	<div class="select__header">
+		<span class="select__header-text"></span>
+		<span class="select__header-icon">
+			<svg><use href="media/img/sprite.svg#icon-arrow-short"></use></svg>
+		</span>
+	</div>
+	<div class="select__list-wrapper"><!-- script-filled list of options --></div>
+</div>
+
+
+<!-- Spoiler -->
+<div class="spoiler">
+	<div class="spoiler__header">
+		<p>Spoiler</p>
+	</div>
+	<div class="spoiler__wrapper">
+		<div class="spoiler__content">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores quis non sunt odit eos at neque eligendi, corrupti repellat vero id quos praesentium illum, quisquam aliquam minima inventore error placeat!</p>
+		</div>
+	</div>
+</div>
+
+
+<!-- Swiper -->
+<div class="swiper-test-box"><!-- delete this box -->
+	<div class="banner__swiper swiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">slide 1</div>
+			<div class="swiper-slide">slide 2</div>
+			<div class="swiper-slide">slide 3</div>
+		</div>
+	</div>
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+</div>
+
+
+<!-- Tabs (закладки) -->
+<div class="catalog__tabs tabs">
+	<div class="tabs__buttons">
+		<div class="tabs__btn _active">Product Information</div>
+		<div class="tabs__btn">Other details</div>
+	</div>
+	<div class="tabs__content">
+		<div class="tabs__content-item _active">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		</div>
+		<div class="tabs__content-item">
+			<p>Obcaecati corporis aliquid, vel provident ducimus dolorem.</p>
+		</div>
+	</div>
+</div>
+
+
+<!-- Time select -->
+<div class="time-select" ondragstart="return false">
+	<div class="time-select__header">
+		<input class="time-select__input" type="number" name="call-time-h" value="17">
+		<span class="time-select__divider">:</span>
+		<input class="time-select__input" type="number" name="call-time-m" value="15">
+		<div class="time-select__header-expander">
+			<svg><use href="media/img/sprite.svg#icon-arrow-short"></use></svg>
+		</div>
+	</div>
+	<div class="time-select__selector-box">
+		<div class="wrapper">
+			<div class="time-select__selector"></div>
+			<div class="time-select__selector"></div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Video player -->
+<div class="content__video-player video-player">
+	<video src="media/video/videosample.mp4" preload="metadata"></video>
+	<div class="video-controls">
+		<div class="video-controls__area">
+			<div class="video-controls__area-btn">P</div>
+		</div>
+		<div class="video-controls__panel">
+			<button class="video-controls__play-pause">P</button>
+			<div class="video-controls__seek-bar">
+				<input type="range" value="0">
+			</div>
+			<div class="video-controls__volume">
+				<div class="video-controls__wrapper">
+					<div class="video-controls__volume-bar">
+						<input type="range">
+					</div>
+				</div>
+				<button class="video-controls__volume-btn">V</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Up button (исчезающая кнопка 'наверх') -->
+<div class="up-button scroll-lock-item-m">
+	<i class="icon-up">UP</i>
+</div>
+
+
+<!-- Шаблон заполнения данных из JSON (пример) -->
+<!-- This is a slide pattern -->
+<div id="news-data-pattern">
+	<div class="swiper-slide">
+		<div class="newsline__news-card news-card" data-pattern="elem">
+			<div class="news-card__img">
+				<img alt="" data-pattern="img">
+			</div>
+			<div class="news-card__content">
+				<div class="news-card__logo"><i class="icon-logo"></i></div>
+				<div class="news-card__video" data-pattern="video"><i class="icon-play"></i></div>
+				<div class="news-card__wrapper">
+					<p class="news-card__g-card-date g-card-date" data-pattern="date"></p>
+					<p class="news-card__g-header-h4 g-header-h4" data-pattern="title"></p>
+					<p class="news-card__g-card-text g-card-text" data-pattern="text"></p>
+				</div>
+				<a class="news-card__g-link g-link" href="#" data-pattern="link"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- / pattern -->
+
+
+<!-- ШАБЛОНЫ CSS ------------------------------------------>
+<style>
+
+/* Clip-path (отсчет от левого верхнего угла):
+	- polygon(x y, x y, x y, x y...):
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	- inset(20px 20px 50px round 15px) - (прямоугольник внутри) размеры как в св-ве 'padding', 'round' - скругленные углы
+	- circle(80px at 50% 50%) - радиус, положение
+	- ellipse(100px 80px at center) - ширина, высота, положение
+	- path (значение path d="" из svg) (плохо поддерживается)
+	- url (ссылка на html-объект или файл (файл плохо поддерживается))
+		css:
+			clip-path: url("#svg-clip-shape"); // ссылка на svg
+			#svg-clip-shape {transform: scale(0.001133, 0.001923);} // настройка координат (разм. svg-файла / разм. эл-та / 100), нужна ручная подгонка... или сделать в редакторе размер '1x1' (viewbox '0 0 1 1'), тогда transform не нужен
+			.svg-templates {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 0;
+				overflow: hidden;
+			}
+		html:
+			<svg xmlns="http://www.w3.org/2000/svg">
+				<clipPath id="svg-clip-shape" viewBox="0 0 200 200" clipPathUnits="objectBoundingBox">
+					<path d="..." />
+					// or <use href="sprite.svg#icon-arrow-path"></use> // link to <path> tag (set <path> 'id' as well) of the sprite file
+				</clipPath>
+			</svg>
+*/
+
+/* Замена базового стиля автозаполнения форм
+	box-shadow: inset 0 1000px 0 0 #fff;
+	-webkit-text-fill-color: #222;
+*/
+
+/* Скроллбар - стилизация
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: coral;
+		border-radius: 5px;
+	}
+	&::-webkit-scrollbar-track {
+		background: darkred;
+		border-radius: 5px;
+		margin-top: 50px;
+	}
+	// - Firefox (для экранного скрола нужно ставить в html)
+	scrollbar-width: thin; // = 8px
+	scrollbar-color: coral darkred; // thumb track
+*/
+
+/* Скроллбар - поведение
+	scroll-behavior: smooth; // плавность прокрутки
+	overscroll-behavior: contain; // предотвращает прокрутку в родителе, если в текущем эл-те прокрутка дошла до конца
+*/
+
+/* Градиент
+	background-image: linear-gradient(to top, orange 10%, black 10%, lime 50%);
+*/
+
+/* Размытие фона
+	backdrop-filter: blur(5px);
+*/
+
+/* Стилизованный нумерованный список
+	ol {
+		counter-reset: num;
+	}
+	li :before {
+		content: counter(num) '.';
+		counter-increment: num;
+	}
+*/
+
+/* Firefox hack (css query that other browsers ignore)
+	@-moz-document url-prefix() {
+		// .elem { styles }
+	}
+*/
+
+/* Обводка текста вместо -webkit-text-stroke (scss) - исправление рваной обводки
+	$tshc: #218DB7;
+	$tsho: 1.8px;
+	text-shadow:
+		$tsho $tsho 0 $tshc,
+		-$tsho -#{$tsho} 0 $tshc,
+		-$tsho $tsho 0 $tshc,
+		$tsho -#{$tsho} 0 $tshc,
+		$tsho 0 0 $tshc,
+		-$tsho 0 0 $tshc,
+		0 $tsho 0 $tshc,
+		0 -#{$tsho} 0 $tshc,
+		0 0 2px $tshc;
+*/
+
+/* Image loading
+	@keyframes image-loading-animation {
+		100% {transform: rotate(360deg);}
+	}
+	.image-loading {
+		width: 42px;
+		height: 42px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -21px;
+		margin-top: -21px;
+		transform-origin: 50%;
+		animation: image-loading-animation 1s infinite linear;
+		border: 4px solid silver;
+		border-radius: 50%;
+		border-top-color: transparent;
+		border-bottom-color: transparent;
+	}
+*/
+
+/* Hover effect with 'animation'
+	.elem {
+		opacity: 0;
+		animation: appearing-animation 1s forwards;
+		// these lines are required because when page loads it starts 'blur' animation
+		// other way to avoid this - js-set classes (e.g. 'active', 'inactive') - with them you will not need 'appearing-animation' and button will be visible at pageload immediately... unfortunately I faced with cases when 'blur' animation still plays (e.g. on css 'display' change) so I had to use 'setTimeout' func to remove 'inactive' class every time animation was finished
+
+		&:hover {animation: hover-animation 1s forwards;} // 'forwards' means that elem will save its computed style like 100%-frame sets
+		&:not(:hover) {animation: blur-animation 1s reverse;} // 'reverse' for lazy coder who doesn't want to rewrite 0% to 100%
+	}
+	@keyframes appearing-animation {
+		99% { opacity: 0; }
+		100% { opacity: 1; }
+	}
+	@keyframes hover-animation {
+		0% { transform: rotate(0); }
+		100% { transform: rotate(45deg); }
+	}
+	@keyframes blur-animation {
+		0% { transform: rotate(315deg); }
+		100% { transform: rotate(45deg); }
+	}
+*/
+
+/* Стилизованный адаптивный ползунок прокрутки (scss)
+	$sbc1: #949292;
+	$sbc2: #7A7979;
+	$sbc3: #AFA9A9;
+	&::-webkit-scrollbar-thumb {
+		border: solid 1px $sbc1;
+		background: linear-gradient(to bottom,
+			$sbc1 4px,
+			$sbc2 4px,
+			$sbc2 5px,
+			$sbc3 5px,
+			$sbc3 6px,
+			$sbc1 6px,
+			$sbc1 7px,
+			$sbc2 7px,
+			$sbc2 8px,
+			$sbc3 8px,
+			$sbc3 9px,
+			$sbc1 9px,
+			$sbc1 10px,
+			$sbc2 10px,
+			$sbc2 11px,
+			$sbc3 11px,
+			$sbc3 12px,
+			$sbc1 12px,
+			$sbc1 calc(100% - 12px),
+			$sbc2 calc(100% - 12px),
+			$sbc2 calc(100% - 11px),
+			$sbc3 calc(100% - 11px),
+			$sbc3 calc(100% - 10px),
+			$sbc1 calc(100% - 10px),
+			$sbc1 calc(100% - 9px),
+			$sbc2 calc(100% - 9px),
+			$sbc2 calc(100% - 8px),
+			$sbc3 calc(100% - 8px),
+			$sbc3 calc(100% - 7px),
+			$sbc1 calc(100% - 7px),
+			$sbc1 calc(100% - 6px),
+			$sbc2 calc(100% - 6px),
+			$sbc2 calc(100% - 5px),
+			$sbc3 calc(100% - 5px),
+			$sbc3 calc(100% - 4px),
+			$sbc1 calc(100% - 4px));
+	}
+*/
+
+/* Отключение подсветки тапов на мобилке (экспериментальная функция! но поддерживают все мобилки кроме firefox)
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+*/
+
+/* Формулы
+	width: calc(900 / #{$media} * 100vw);
+	width: calc(900 * 0.8 / #{$media} * 100vw + 900 * (1 - 0.8) * 1px);
+	коэф. значения от 0 до 1 - понижающие, от 1 и выше - повышающие
+*/
+
+</style>
+
+
+<!-- ШАБЛОНЫ JS ------------------------------------------>
+<script>
+
+/* Сортировка массива
+	array.sort((a,b) => {return a - b})
+*/
+
+
+/* Принудительный запуск эвента
+	input.dispatchEvent(new Event('change'))
+*/
+
+
+/* Modal on-functions examples:
+
+	// Shared header styles
+		open: function(timeout, content) {
+			if (content.className.match(/--light/)) {
+				header.headerElem.classList.remove('_active-modal-dark');
+				header.headerElem.classList.add('_active-modal-light');
+			}
+			if (content.className.match(/--dark/)) {
+				header.headerElem.classList.remove('_active-modal-light');
+				header.headerElem.classList.add('_active-modal-dark');
+			}
+		},
+		close: function(timeout, content) {
+			header.headerElem.classList.remove('_active-modal-light');
+			header.headerElem.classList.remove('_active-modal-dark');
+		},
+
+	// Video player
+		open: function(event, content, timeout) {setTimeout(() => {videoPlayer.play(content)}, timeout)},
+		close: function(event, content, timeout) {videoPlayer.pause(content)}
+
+	// Image preview
+		open: function(event, content, timeout) {
+			let source = event.currentTarget.children[event.currentTarget.children.length-1];
+			let img = document.querySelector('#modal-imgpreview img');
+			img.src = source.getAttribute('src').replace('.','-preview.');
+			if (source.srcset) img.srcset = source.srcset.replace('@2x.','-preview@2x.');
+			else img.srcset = '';
+		},
+		close: function(event, content) {
+			let img = document.querySelector('#modal-imgpreview img');
+			setTimeout(() => {
+				img.src = img.srcset = '';
+			}, modal.timeout)
+		},
+
+*/
+
+</script>
+
+
+<!-- Тестовые настройки ---------------------------------->
+
+<style>
+	.template-test-block .container {max-width: 500px; display: flex; align-items: center; flex-direction: column; gap: 30px; padding: 50px 0 100px;}
+	.swiper-test-box, .swiper {width: 100%; position: relative;}
+
+	#wpadminbar {position: fixed; top: 0; left: 0; height: 32px; width: 100%; z-index: 999; background-color: #333; color: white;}
+	@media (max-width: 782px) {#wpadminbar {height: 46px;}}
+	@media (max-width: 500px) {#wpadminbar {height: 50px;}}
+</style>
+
+<div id="wpadminbar">wpadminbar</div>
+<a class="modal-link" href="#modal-info">MODAL</a>
+<button onclick="test_popup.open()">POPUP</button>
+
+
+<!-- Иконки из спрайта ---------------------------------->
+<div id="svg-sprite-icons">
+	<script id="svg-sprite-icons-script">
+		const svgSpriteIcons = {
+			settings: {
+				filePath: 'media/img/sprite.svg',
+				objectID: 'svg-sprite-object',
+				containerID: 'svg-sprite-icons',
+			},
+			init: function() {
+				this.containerEl = document.getElementById(this.settings.containerID);
+				this.containerEl.innerHTML += `<object id="${this.settings.objectID}" data="${this.settings.filePath}"></object>`;
+				let that = this;
+				setTimeout(()=>{
+					that.addItems();
+					that.addStyles();
+				}, 1000);
+			},
+			addItems: function() {
+				let iconsEl = document.createElement('div');
+				this.containerEl.appendChild(iconsEl);
+				iconsEl.className = 'icons';
+				let objectContent = document.getElementById(this.settings.objectID).contentDocument;
+				if (!objectContent.querySelector('symbol')) return console.log(`[templates] ERR! Failed to load icon-sprite. Missing or incorrect file "${this.settings.filePath}".`);
+				this.objectSymbols = objectContent.querySelectorAll('symbol');
+				for (let i = 0; i < this.objectSymbols.length; i++) {
+					let symbolID = '#' + this.objectSymbols[i].id;
+					let svgString = `<svg><use href="${this.settings.filePath}${symbolID}"></use></svg>`;
+					iconsEl.innerHTML += `<div class="icon">${svgString}<p>${symbolID}</p></div>`;
+				}
+			},
+			addStyles: function() {
+				let styles = [
+					`#${this.settings.objectID} {display: none;}`,
+					`#${this.settings.containerID} {width: 100%;}`,
+					`#${this.settings.containerID} .icons {display: grid; grid-template-columns: repeat(auto-fit, 100px); grid-gap: 20px; justify-content: space-between;}`,
+					`#${this.settings.containerID} .icon {display: flex; flex-direction: column; align-items: center;}`,
+					`#${this.settings.containerID} .icon svg {width: 100px; height: 100px; fill: black; border: solid 1px blue;}`,
+					`#${this.settings.containerID} .icon p {margin-top: 10px; height: 25px; font-size: 11px; color: black;}`,
+				]
+				let styleStr = '';
+				for (let i = 0; i < styles.length; i++) {styleStr += styles[i]}
+				this.containerEl.innerHTML += `<style>${styleStr}</style>`;
+			}
+		}
+		svgSpriteIcons.init();
+	</script>
+</div>

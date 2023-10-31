@@ -1,0 +1,31 @@
+@if $spoiler__isloaded == true {
+
+.spoiler {
+	overflow: hidden;
+	transition: all $timer-spoiler;
+	position: relative;
+	z-index: 2;
+	&__header {
+		padding: 10px;
+		font-weight: bold;
+		background-color: #aaa;
+		cursor: pointer;
+		user-select: none;
+		transition: all $timer-spoiler;
+	}
+	&__wrapper {
+		overflow: hidden;
+		height: 0;
+		transition: height $timer-spoiler;
+	}
+	&__content {
+		padding: 10px;
+		background-color: #fff;
+	}
+	&._visible &__header {
+		background-color: orange;
+	}
+	&._visible &__content {}
+}
+
+} // end @if

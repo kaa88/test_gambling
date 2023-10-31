@@ -1,0 +1,28 @@
+@if $accordion_js__isloaded == true {
+
+// версия с разными размерами текста
+.accordion {
+	border: solid 1px silver;
+	&__item {
+		overflow: hidden;
+		transition: height $timer-accordion;
+		&-header {
+			display: flex;
+			align-items: center;
+			height: 30px;
+			background-color: lemonchiffon;
+			font-weight: bold;
+			cursor: pointer;
+			user-select: none;
+			transition: all $timer-accordion;
+		}
+		&._active &-header {
+			background-color: lightgreen;
+		}
+		&-content {
+			background-color: #ddd;
+		}
+	}
+}
+
+} // end @if

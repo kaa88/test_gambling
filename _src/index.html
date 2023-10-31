@@ -1,0 +1,83 @@
+@@if (isWordPress) {
+	<?php
+		/* Template Name: home */
+		get_template_part('parts/header');
+	?>
+}
+
+@@if (!isWordPress) {
+	@@include('parts/header.html', {
+		'title': 'New site',
+		'descr': 'Description',
+		'robots': 'noindex, nofollow',
+		'bodyclass': 'page-home',
+	})
+}
+
+@@if (header__isloaded) {
+	<!-- header-menu-options:
+		список пунктов меню находится в header.html
+		наличие и порядок устанавливаются в массиве 'links' (читает data-атрибут)
+		'activeLink' добавляет класс 'this-page'
+		управляется из 'header metrics', поэтому должен идти перед ним
+		тег '<script>' можно удалить
+	-->
+	<script id="header-menu-options">
+		let headerMenuOptions = {
+			// links: ['home','modal','submenu','contacts'],
+			activeLink: 'home'
+		}
+	</script>
+	@@if (isLiteBuild) {<script src="js/website.header_metrics.js"></script>}
+	@@if (!isLiteBuild) {<script src="js/website.header_metrics.min.js"></script>}
+}<!-- end @if header -->
+
+
+<main class="main">
+
+	<section class="main__section section">
+		<div class="section__container container">
+
+			<h1 class="g-h1">content section1</h1>
+			<h1 class="g-h1">content section2</h1>
+			<h1 class="g-h1">content section3</h1>
+			<h1 class="g-h1">content section4</h1>
+			<h1 class="g-h1">content section5</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+
+		</div>
+	</section>
+
+</main>
+
+
+@@if (modal__isloaded) {
+	<section class="modal">
+		@@if (isWordPress) {
+			<?php
+				get_template_part('parts/modal-info');
+			?>
+		}
+		@@if (!isWordPress) {
+			@@include('parts/modal-info.html')
+		}
+	</section>
+}<!-- end @if modal -->
+
+
+@@if (isWordPress) { <?php get_template_part('parts/footer'); ?> }
+@@if (!isWordPress) { @@include('parts/footer.html') }

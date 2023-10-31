@@ -1,0 +1,105 @@
+@use "sass:math";
+@import "gulp-settings";
+@import "mixins-functions";
+@import "reset";
+@import "noscript";
+
+///////////////////////////////////////////////////////
+
+/* Fonts */
+// roboto
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap');
+// @import "fontscript";
+$font-1: Lexend, Arial, sans-serif;
+// Fonts test
+// h1 {
+// 	font-family: $font-1;
+// 	font-weight: 700;
+// }
+
+///////////////////////////////////////////////////////
+
+// Media breakpoints //
+
+// desktop
+$media-dxl: 3840;
+$media-dl: 2560;
+$media-d: 1920;
+$media-ds: 1600;
+$media-dxs: 1366;
+
+// tablet
+$media-tl: 1280;
+$media-t: 1024;
+$media-ts: 920;
+
+// mobile
+$media-ml: 782;
+$media-m: 480;
+$media-ms: 360;
+
+// aspect ratio
+$media-ar11: concat-aspect-ratio(1, 1);
+$media-ar54: concat-aspect-ratio(5, 4);
+$media-ar149: concat-aspect-ratio(14, 9);
+$media-ar159: concat-aspect-ratio(15, 9);
+$media-ar169: concat-aspect-ratio(16, 9);
+$media-ar209: concat-aspect-ratio(20, 9);
+
+///////////////////////////////////////////////////////
+
+// Page sizes //
+$font-size-default: 16px; //px
+$page-min-width: calc(315px - (100vw - 100%));
+$page-max-width: 1920;
+$container-desktop-width: 1640;
+$container-mobile-width: 480;
+$container-padding: 15;
+// $container-width: $container-padding * 2 + $container-base-width;
+// $mobile-content-max-width: $media-m + px;
+
+///////////////////////////////////////////////////////
+
+// Transitions //
+$timer-hover: 0.15s;
+$timer-menu: 0.5s;
+$timer-modal: 0.7s;
+$timer-select: 0.2s;
+$timer-spoiler: 0.2s;
+$timer-slider: 0.5s;
+$timer-accordion: 0.3s;
+$timer-tabs: 0.8s;
+
+///////////////////////////////////////////////////////
+
+@import "colors";
+@import "globs";
+
+/* Modules */
+@import "modules/accordion_css";
+@import "modules/accordion_js";
+@import "modules/copyright";
+@import "modules/footer";
+@import "modules/form";
+@import "modules/header";
+@import "modules/input_checkbox";
+@import "modules/input_file";
+@import "modules/input_radio";
+@import "modules/input_range_colored";
+@import "modules/input_range_double";
+@import "modules/loadscreen";
+@import "modules/modal";
+@import "modules/pagination";
+@import "modules/parallax";
+@import "modules/popup";
+@import "modules/position_marker";
+@import "modules/rotation_alert";
+@import "modules/select";
+@import "modules/spoiler";
+@import "modules/tabs";
+@import "modules/time_select";
+@import "modules/up_button";
+@import "modules/video_player";
+
+@import "main";
+@import "print";

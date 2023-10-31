@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+@@if (isWordPress) { <html <?php language_attributes(); ?>> }
+@@if (!isWordPress) { <html lang="en-US"> }
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	@@if (!isWordPress) {
+		<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
+		<title>@@title</title>
+		<meta name="description" content="@@descr">
+		<meta name="robots" content="@@robots">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+
+		@@if (swiper__isloaded) { <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"> }
+		@@if (isLiteBuild) { <link rel="stylesheet" href="css/website.style.css"> }
+		@@if (!isLiteBuild) { <link rel="stylesheet" href="css/website.style.min.css"> }
+		<link rel="icon" href="media/img/favicon-32.png" sizes="32x32">
+		@@if (!isLiteBuild) {
+			<link rel="icon" href="media/img/favicon-180.png" sizes="180x180">
+			<link rel="apple-touch-icon" href="media/img/favicon-180.png" sizes="180x180">
+			<meta name="msapplication-TileImage" content="media/img/favicon-270.png">
+		}
+	}<!-- end @if !wp -->
+
+	@@if (isWordPress) { <?php wp_head(); ?> }
+</head>
+
+<body class="@@bodyclass">
+	@@if (isWordPress) { <?php wp_body_open(); ?> }
+
+
+@@if (header__isloaded) {
+<!-------------------- HEADER MENU -------------------->
+<!--
+	ОСНОВЫ: делать этажи (с контейнером) при любом варианте.
+	Примеры этажей: --main, --menu, --account, --shopping
+	Всё, что нужно скрывать, ставить во wrapper.
+	Scroll_lock: добавить класс 'scroll-lock-item-pm' для уровней, которые скроются в меню,
+	и '...-p' для тех, которые не скроются (level--main).
+	
+	Схема один этаж:
+	header
+		turn-off
+		print-address
+		level
+			container
+				logo
+				burger
+				wrapper
+					close-btn
+					menu
+					optional elems
+
+	Схема два и больше этажа:
+	header
+		turn-off
+		print-address
+		level
+			container
+				logo
+				burger
+		wrapper
+			close-btn
+			level
+				container
+					logo copy
+					elems
+			level
+				container
+					elems
+
+	На этаж можно поставить копию лого, т.к. в CSS перенести сложно
+-->
+
+<header class="header header--static">
+	<div class="header-menu-turnoff-area"></div>
+
+	<div class="header-level header-level--main scroll-lock-item-p">
+		<div class="container">
+
+			<div class="header-level__logo logo">
+				<a class="logo__link" href="index.html">
+					LOGO
+				</a>
+			</div>
+			
+			<div class="header-level__button-box">
+				<!-- close-btn только закрывает, open-btn может открывать и закрывать -->
+				<div class="header-menu-open-btn">
+					<svg><use href="media/img/sprite.svg#icon-menu"></use></svg>
+					<!-- для 'Animated Burger' поставить пустой span вместо svg -->
+				</div>
+				<div class="header-menu-close-btn">
+					<svg><use href="media/img/sprite.svg#icon-cross"></use></svg>
+				</div>
+			</div>
+	
+			<!-- script will add current page href if print-address tag is empty -->
+			<div class="header-level__print-address"></div>
+			<div class="header-level__print-address-qr"></div>
+
+		</div>
+	</div>
+
+	<div class="header-menu-hide-wrapper">
+		<!-- header-menu-close-btn можно поставить сюда -->
+
+		<div class="header-level header-level--menu scroll-lock-item-pm">
+			<div class="container">
+				<nav class="header-menu">
+					<ul class="header-menu__items">
+						<!-- список всех ссылок, можно сортировать скриптом -->
+						<li class="header-menu__item" data-linkname="about">
+							<a class="header-menu__link" href="#">About us</a>
+						</li>
+						<li class="header-menu__item" data-linkname="brands">
+							<a class="header-menu__link" href="#">Brands</a>
+						</li>
+						<li class="header-menu__item" data-linkname="commissions">
+							<a class="header-menu__link" href="#">Commissions</a>
+						</li>
+						<li class="header-menu__item" data-linkname="news">
+							<a class="header-menu__link" href="#">News</a>
+						</li>
+						<li class="header-menu__item" data-linkname="contact">
+							<a class="header-menu__link" href="#">Contact us</a>
+						</li>
+						<li class="header-menu__item" data-linkname="careers">
+							<a class="header-menu__link" href="#">Careers</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header-account">
+					<div class="select">
+						<select class="" name="select">
+							<option value="" disabled selected>Select...</option> <!-- value '' is required for form check -->
+							<option value="en">en</option>
+							<option value="ru">ru</option>
+						</select>
+						<div class="select__header">
+							<span class="select__header-text"></span>
+							<span class="select__header-icon">
+								<svg><use href="media/img/sprite.svg#icon-arrow-short"></use></svg>
+							</span>
+						</div>
+						<div class="select__list-wrapper"><!-- script-filled list of options --></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</header>
+
+<!-- <div id="wpadminbar" style="z-index: 999; position: fixed; top: 0; left: 0; height: 20px; width: 100%; background-color: #353;"></div> -->
+
+	@@if (isWordPress) {
+	<!-- <?php
+	// if (has_nav_menu('header-menu')) {
+	// 	wp_nav_menu([
+	// 		'theme_location' => 'header-menu',
+	// 		'container' => 'nav',
+	// 		'container_class' => 'header__menu menu',
+	// 		'menu_class' => 'menu__items',
+	// 		'items_wrap' => '<div class="menu__menu-open-btn"><span></span></div><div class="menu__container"><ul class="%2$s">%3$s</ul></div>',
+	// 		'depth' => 1,
+	// 		// Defaults:
+	// 		// 'menu'                 => '', // название блока меню
+	// 		// 'theme_location'       => '', // расположение блока меню
+	// 		// 'container'            => 'div', // тег контейнера (div или nav)
+	// 		// 'container_class'      => '', // имя класса контейнера
+	// 		// 'container_id'         => '', // id контейнера
+	// 		// 'container_aria_label' => '', // aria атрибут
+	// 		// 'menu_class'           => 'menu', // имя класса меню (тег ul)
+	// 		// 'menu_id'              => '', // id меню
+	// 		// 'echo'                 => true, // сразу выводит меню при объявлении wp_nav_menu
+	// 		// 'fallback_cb'          => 'wp_page_menu', // колбэк, если меню не найдено
+	// 		// 'before'               => '', // добавляет что-то перед тегом li
+	// 		// 'after'                => '', // добавляет что-то после тега li
+	// 		// 'link_before'          => '', // добавляет что-то в начало ссылки (например, иконку)
+	// 		// 'link_after'           => '', // добавляет что-то в конец ссылки
+	// 		// 'items_wrap'           => '<ul id="%1$s" class="%2$s">%3$s</ul>', // схема элементов
+	// 		// 'item_spacing'         => 'preserve', // переносы строк в html коде (preserve / discard)
+	// 		// 'depth'                => 0, // уровень вложенности меню (0 = все)
+	// 		// 'walker'               => '', // php-класс для построения меню (особая конструкция)
+	// 	]);
+	// }
+	?> -->
+	}<!-- end @if wp -->
+
+}<!-- end @if header -->

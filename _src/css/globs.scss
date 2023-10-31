@@ -1,0 +1,107 @@
+/* Global elements */
+body {
+	// Variables for JS manipulations:
+	--header-position: 0px; //REQ!
+	--header-offset: 0px; //REQ!
+	--header-height: 0px; //REQ!
+	--window-height: 100vh; //REQ!
+	--marker-position: 0px; //REQ!
+	--media-mobile: #{$media-ml}; //REQ!
+	--timer-menu: #{$timer-menu}; //REQ!
+	--timer-modal: #{$timer-modal}; //REQ!
+
+	display: grid; //REQ!
+	grid-template-columns: 100%;
+	grid-template-rows: 1fr auto; //REQ! if footer at the bottom
+	min-height: 100vh; //REQ! if footer at the bottom
+	// max-width: $page-max-width+px;
+	// margin: 0 auto; //REQ! if max-width
+	padding-top: calc(var(--header-offset) + var(--header-height));
+
+	font-family: $font-1;
+	font-size: $font-size-default;
+	color: var(--colorTextMain);
+	background-color: var(--colorBgMain);
+	&.scroll-is-locked, &.loadscreen--locked {overflow: hidden;} //REQ!
+}
+// Window scrollbar
+html { // Firefox scrollbar is setting up in 'html'
+	scrollbar-width: thin; // = 8px
+	scrollbar-color: coral darkred; // thumb track
+}
+body {
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: coral;
+	}
+	&::-webkit-scrollbar-track {
+		background: darkred;
+	}
+}
+
+.container {
+	width: 100%; //REQ!
+	min-width: $page-min-width; //REQ!
+	max-width: $container-padding * 2 + $container-desktop-width + px; //REQ!
+	margin: 0 auto; //REQ!
+	padding: 0 $container-padding+px;
+	@media (max-width: $media-m+px) {
+		max-width: $container-padding * 2 + $container-mobile-width + px; //REQ!
+	}
+}
+
+.svg-templates {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+// #svg-clip-shape {transform: scale(0.001133, 0.001923);} // настройка координат (разм. svg-файла / разм. эл-та / 100), нужна ручная подгонка... или сделать в редакторе размер '1x1' (viewbox '0 0 1 1'), тогда transform не нужен
+
+.g-h1 {
+	font-size: 40px;
+	line-height: 3;
+	text-align: center;
+}
+.g-h2 {}
+.g-h3 {}
+.g-h4 {}
+.g-text {}
+.g-button {}
+.g-link {}
+
+.nowrap {
+	white-space: nowrap;
+}
+.mobile-only {
+	@media (min-width: $media-ml+1+px) {
+		display: none !important;
+	}
+}
+.desktop-only {
+	@media (max-width: $media-ml+px) {
+		display: none !important;
+	}
+}
+
+textarea {
+	resize: none; // none, both, horizontal, vertical
+	@media (min-width: $media-m+1+px) {
+		scrollbar-width: thin; // none, thin, auto
+		scrollbar-color: orange gray; // thumb, track
+		&::-webkit-scrollbar {
+			width: 8px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: orange;
+		}
+		&::-webkit-scrollbar-track {
+			background: gray;
+		}
+	}
+}
+

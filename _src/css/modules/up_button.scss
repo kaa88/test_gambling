@@ -1,0 +1,29 @@
+@if $up_button__isloaded == true {
+
+.up-button {
+	margin-right: 20px;
+	position: fixed;
+	right: 50px;
+	bottom: 100px;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: yellow;
+	cursor: pointer;
+	user-select: none;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility .3s, opacity .3s;
+	&._visible {
+		visibility: visible;
+		opacity: 1;
+	}
+	i {
+		font-size: 20px;
+		font-weight: bold;
+	}
+}
+
+} // end @if

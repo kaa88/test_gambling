@@ -1,0 +1,98 @@
+@if $modal__isloaded == true {
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 61;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(2px);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity $timer-modal, visibility $timer-modal;
+	&._visible {
+		opacity: 1;
+		visibility: visible;
+	}
+	&__window {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 30px;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity $timer-modal, visibility $timer-modal;
+		&._active {
+			opacity: 1;
+			visibility: visible;
+		}
+		@media (max-width: $media-ml+px) {
+			padding: 0;
+		}
+	}
+	&__wrapper {
+		position: relative;
+		display: flex;
+		max-width: 600px;
+		height: 100%;
+		max-height: 500px;
+		padding: 50px 4px 30px;
+		background-color: #fff;
+		// #modal-info & { // example for different windows
+		// 	max-width: 1000px;
+		// 	max-height: 700px;
+		// }
+	}
+	&__content {
+		width: 100%;
+		padding: 0 20px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		scrollbar-width: thin;
+		scrollbar-color: #000 #ddd;
+		&::-webkit-scrollbar {
+			width: 8px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: #000;
+			border-radius: 5px;
+		}
+		&::-webkit-scrollbar-track {
+			background: #eee;
+			border-radius: 5px;
+			// margin-top: 50px;
+		}
+	}
+	&__close-button, &__back-button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: silver;
+		fill: blue;
+		user-select: none;
+		cursor: pointer;
+		svg {
+			width: 75%;
+			height: 75%;
+		}
+	}
+	&__back-button {
+		right: auto;
+		left: 0;
+		transform: rotate(180deg);
+	}
+}
+
+} // end @if

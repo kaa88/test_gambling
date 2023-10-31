@@ -1,0 +1,35 @@
+@if $pagination__isloaded == true {
+
+.pagination {
+	display: inline-block;
+	background-color: yellow;
+	border: solid 2px #555;
+	&__item {
+		display: inline-block;
+		width: 46px;
+		height: 46px;
+		line-height: 46px;
+		font-weight: 700;
+		font-size: 17px;
+		text-align: center;
+		color: #555;
+		background-color: lightgreen;
+		transition: all $timer-hover;
+		user-select: none;
+		&:not(:last-child) {
+			margin-right: 15px;
+		}
+		&:hover {
+			text-shadow: 0 0 3px #555;
+		}
+		&._active {
+			color: blue;
+			pointer-events: none;
+		}
+		&._inactive {
+			pointer-events: none;
+		}
+	}
+}
+
+} // end @if

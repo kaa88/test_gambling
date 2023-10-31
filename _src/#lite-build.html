@@ -1,0 +1,46 @@
+<div id="lite-build-notification" class="scroll-lock-item-m">
+	L
+	<style>
+		#lite-build-notification {
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			z-index: 9999;
+			width: calc(4vh + 3vw);
+			height: calc(4vh + 3vw);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: Georgia;
+			font-weight: bold;
+			font-size: calc(3vh + 1.5vw);
+			color: #0e2dda;
+			background-color: #48f979;
+			border: solid 0.5vh #ff3535;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.lbn-left {
+			left: 0;
+			right: auto;
+		}
+	</style>
+	<script>
+		let lbn_elem = document.querySelector('#lite-build-notification');
+		lbn_elem.addEventListener('click', function() {
+			let side = 'left';
+			if (this.classList.contains('lbn-left')) side = 'right';
+			this.classList.toggle('lbn-left');
+			let d = new Date();
+			d.setTime(d.getTime() + (10*24*60*60*1000));
+			document.cookie = `_lite-build-notification=${side}; path=/; expires=${d.toUTCString()}`;
+		})
+		let lbn_cookie = decodeURIComponent(document.cookie).split('; '), lbn_cookieObj = {};
+		for (let i = 0; i < lbn_cookie.length; i++) {
+			let split = lbn_cookie[i].split('=');
+			lbn_cookieObj[split[0]] = split[1];
+		}
+		lbn_cookie = lbn_cookieObj['_lite-build-notification'];
+		if (lbn_cookie && lbn_cookie == 'left') lbn_elem.classList.add('lbn-left');
+	</script>
+</div>

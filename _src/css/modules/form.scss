@@ -1,0 +1,110 @@
+@if $form__isloaded == true {
+
+.form {
+	width: 250px;
+	// font-size: 0;
+	&--contact { // name of form
+	}
+	&--sending { // sending state
+		position: relative;
+		&:before {
+			content: "";
+			background-color: transparent;
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+		}
+	}
+	& > * {
+		margin-bottom: 10px; //
+	}
+	input[type="text"] {
+		width: 100%;
+		height: 30px;
+		padding: 0 10px;
+		box-shadow: inset 0 1000px 0 #eee; // prevent color change on autofill
+		&.form--error {
+			box-shadow: inset 0 1000px 0 0 #E5C6C8;
+		}
+	}
+	textarea {
+		padding: 8px 10px;
+		width: 100%;
+		height: 60px;
+		resize: none;
+		background-color: #eee;
+		&.form--error {
+			background-color: #E5C6C8;
+		}
+	}
+	&__button {
+		width: 200px;
+		height: 40px;
+		background-color: lightgreen;
+		position: relative;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	&__send-progress {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: inherit;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity .3s, visibility .3s;
+		.form--sending & {
+			opacity: 1;
+			visibility: visible;
+		}
+		span {
+			width: 100%;
+			max-width: 90px;
+			font-size: 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			i {
+				position: relative;
+				flex: 0 0 calc(60% / 3); // here is item size
+				display: flex;
+				justify-content: center;
+				&:before {
+					content: '';
+					display: inline-block;
+					width: 50%;
+					height: 0;
+					padding-bottom: 50%;
+					background-color: #555;
+					border-radius: 3px;
+					animation: form-send-progress-animation 0.6s infinite alternate ease-in;
+				}
+				&:nth-of-type(2):before {animation-delay: 0.2s;}
+				&:nth-of-type(3):before {animation-delay: 0.4s;}
+			}
+		}
+	}
+	&__report {
+		height: 14px;
+		font-size: 12px;
+		visibility: hidden;
+		&.form--ok, &.form--error {visibility: visible;}
+		&.form--ok {color: green}
+		&.form--error {color: red}
+	}
+}
+@keyframes form-send-progress-animation {
+	from {transform: scale(1);}
+	to {transform: scale(2);}
+}
+
+} // end @if

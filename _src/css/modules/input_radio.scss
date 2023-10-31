@@ -1,0 +1,51 @@
+@if $input_radio__isloaded == true {
+
+.radio {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	input {
+		display: none;
+		&:checked + label .label-box {
+			&:after {
+				width: 18px;
+				height: 18px;
+			}
+		}
+		&.form--error + label .label-text { //?
+			color: red;
+		}
+	}
+	label {
+		display: inline-flex;
+		align-items: center;
+	}
+	.label-text {
+		margin-left: 5px;
+		font-family: Arial;
+		font-size: 16px;
+		white-space: nowrap;
+		user-select: none;
+	}
+	.label-box {
+		width: 24px;
+		height: 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #fff;
+		border-radius: 20px;
+		cursor: pointer;
+		&:after {
+			content: "";
+			width: 0;
+			height: 0;
+			background-color: orange;
+			border-radius: 20px;
+			transition: all .3s;
+		}
+	}
+}
+
+} // end @if

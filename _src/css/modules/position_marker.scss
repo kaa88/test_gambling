@@ -1,0 +1,13 @@
+@if $position_marker__isloaded == true {
+
+.position-marker {
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	// width: 10px; // for test
+	// height: 10px; // for test
+	// background-color: yellow; // for test
+}
+
+} // end @if

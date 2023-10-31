@@ -1,0 +1,102 @@
+[
+	{
+		"id": "1472001",
+		"genre": "fantasy",
+		"categories": ["best", "new", "special"],
+		"title": "The Hare With Amber Eyes",
+		"price": "$50",
+		"discount": true,
+		"link": "book.html",
+		"image": "img/cover-01.jpg"
+	},
+	{
+		"id": "1472002",
+		"genre": "literature",
+		"categories": ["best"],
+		"title": "The War of Art",
+		"price": "$60",
+		"discount": false,
+		"link": "book.html",
+		"image": "img/cover-02.jpg"
+	},
+	{
+		"id": "1472003",
+		"genre": "romance",
+		"categories": ["best", "special", "used"],
+		"title": "Can love happen twice?",
+		"price": "$25",
+		"discount": true,
+		"link": "book.html",
+		"image": "img/cover-03.jpg"
+	},
+	{
+		"id": "1472004",
+		"genre": "horror",
+		"categories": ["best", "new"],
+		"title": "The Immortals of Meluha",
+		"price": "$80",
+		"discount": false,
+		"link": "book.html",
+		"image": "img/cover-04.jpg"
+	},
+	{
+		"id": "1472005",
+		"genre": "children",
+		"categories": ["best"],
+		"title": "Life Is What You Make It",
+		"price": "$200",
+		"discount": false,
+		"link": "book.html",
+		"image": "img/cover-05.jpg"
+	},
+	{
+		"id": "1472006",
+		"genre": "crime",
+		"categories": ["best", "new"],
+		"title": "Marathon Baba",
+		"price": "$200",
+		"discount": false,
+		"link": "book.html",
+		"image": "img/cover-06.jpg"
+	},
+	{
+		"id": "1472007",
+		"genre": "poetry",
+		"categories": ["best", "used"],
+		"title": "Calico Joe",
+		"price": "$150",
+		"discount": false,
+		"link": "book.html",
+		"image": "img/cover-07.jpg"
+	},
+	{
+		"id": "1472008",
+		"genre": "mystery",
+		"categories": ["best", "used", "special"],
+		"title": "The long dark tea-time of the soul",
+		"price": "$100",
+		"discount": true,
+		"link": "book.html",
+		"image": "img/cover-08.jpg"
+	},
+	{
+		"id": "1472009",
+		"genre": "mystery",
+		"categories": ["best", "new"],
+		"title": "The Armageddon Rag",
+		"price": "$152",
+		"discount": false,
+		"link": "book.html",
+		"image": "img/cover-09.jpg"
+	},
+	{
+		"id": "1472010",
+		"genre": "romance",
+		"categories": ["best", "new"],
+		"title": "A Walk Across the Sun",
+		"price": "$200",
+		"discount": false,
+		"link": "book.html",
+		"image": "img/cover-10.jpg"
+	}
+]

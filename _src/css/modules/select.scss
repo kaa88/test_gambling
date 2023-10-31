@@ -1,0 +1,71 @@
+@if $select__isloaded == true {
+
+.select {
+	position: relative;
+	width: 182px;
+	height: 32px;
+	cursor: pointer;
+	transition: all $timer-select;
+	select {display: none;}
+	&__header {
+		height: 100%;
+		padding: 0 10px;
+		display: flex;
+		align-items: center;
+		background-color: orange;
+		border: solid 2px #555;
+		overflow: hidden;
+		user-select: none;
+		&-text {
+			flex: 1 1 auto;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		&-icon {
+			margin-left: 10px;
+			flex: 0 0 auto;
+			width: 8px;
+			height: 8px;
+			display: flex;
+			align-items: center;
+			transform: rotate(90deg);
+		}
+	}
+	&__header:hover, &.active &__header {
+		border-color: yellow;
+	}
+	select.form--error ~ &__header {
+		border-color: red;
+	}
+	&__list-wrapper {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		z-index: 2;
+		height: 0;
+		overflow: hidden;
+		border: solid 2px yellow;
+		transition: all $timer-select;
+		visibility: hidden; // скрытие списка с толстой рамкой
+		&.active {
+			visibility: visible;
+		}
+	}
+	&__list {}
+	&__option {
+		display: flex;
+		align-items: center;
+		background-color: #fff;
+		height: 28px;
+		padding: 0 10px;
+		white-space: nowrap;
+		overflow: hidden;
+		transition: all $timer-hover;
+		&.selected, &:hover {
+			background-color: #ddd;
+		}
+	}
+}
+
+} // end @if

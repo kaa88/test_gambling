@@ -1,0 +1,102 @@
+@if $print__isloaded == true {
+
+/* Print version */
+@media print {
+	// Перенос строк. Применяется к блочным эл-там. В Chrome работает только с body.children
+	// page-break-inside: avoid;
+	// page-break-before: always;
+	// page-break-after: auto;
+	// auto / always / avoid / left / right
+	a, img, pre, blockquote, table,
+	h1, h2, h3, h4, h5, h6 {
+		page-break-inside: avoid;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		page-break-after: avoid;
+	}
+	* {
+		background: #fff;
+		color: #000;
+		fill: #000;
+	}
+	a {
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	body {
+		max-width: 297mm;
+		padding-top: 0;
+		margin: 0 auto;
+	}
+	.container {padding: 0;}
+
+	#wpadminbar,
+	.header-level__button-box,
+	.header-menu-open-btn,
+	.header-menu-close-btn,
+	.header-submenu-back-btn,
+	.header-menu-turn-off-area,
+	.header-menu-hide-wrapper,
+	.header-submenu-hide-wrapper,
+	.breadcrumbs,
+	.form,
+	.up-button,
+	.loadscreen,
+	.rotation-alert,
+	.noscript-alert {
+		display: none;
+	}
+
+	.header {
+		position: relative;
+	}
+	.header-level {
+		&--main {
+			.container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+		}
+		&__print-address {
+			margin: 0 30px;
+			display: block;
+			font-family: Arial;
+			font-size: 26px;
+			word-break: break-word;
+		}
+		&__print-address-qr {
+			display: block;
+			font-size: 0;
+		}
+	}
+	.logo * {
+		text-decoration: none;
+	}
+	.main {
+		margin-top: 10px; // changed formula to px because '.header position: relative' and resize-event doesn't trigger
+	}
+
+	// Swiper:
+	.swiper {}
+	.swiper-wrapper {
+		top: 0 !important;
+		left: 0 !important;
+		display: grid !important;
+		grid-template-columns: repeat(auto-fit, 200px);
+		grid-auto-rows: 80px;
+		grid-gap: 10px;
+		justify-content: center;
+		align-items: start;
+	}
+	.swiper-slide {
+		width: 100% !important;
+		height: 100% !important;
+	}
+	.swiper-button-prev, .swiper-button-next {
+		display: none;
+	}
+
+}
+
+} // end @if

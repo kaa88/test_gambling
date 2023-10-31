@@ -1,0 +1,35 @@
+@if $accordion_css__isloaded == true {
+	
+// простая версия с фиксированными размерами
+.css-accordion {
+	width: 200px;
+	border: solid 1px gray;
+	input {
+		display: none;
+		&:checked + label {
+			height: 150px;
+		}
+	}
+	&__item {
+		display: block;
+		overflow: hidden;
+		height: 30px;
+		transition: height $timer-accordion;
+		&-header {
+			display: flex;
+			align-items: center;
+			height: 30px;
+			background-color: lemonchiffon;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		&-content {
+			display: block;
+			height: calc(100% - 30px);
+			overflow-y: scroll;
+			background-color: silver;
+		}
+	}
+}
+
+} // end @if

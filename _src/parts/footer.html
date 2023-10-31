@@ -1,0 +1,84 @@
+@@if (footer__isloaded) {
+<footer class="footer">
+
+	<section class="footer-top">
+		<div class="footer-top__container container">
+
+			<h1 class="g-h1">footer</h1>
+
+		</div>
+	</section>
+
+	<section class="footer-bottom">
+		<div class="footer-bottom__container container">
+
+			<p class="footer-bottom__copy">© Copyright 2022, All Rights Reserved</p>
+			<p class="footer-bottom__author">Designed and Developed By Author</p>
+
+		</div>
+	</section>
+	
+</footer>
+}<!-- end @if footer -->
+
+
+@@if (loadscreen__isloaded) {
+	<div class="loadscreen loadscreen--locked">
+		<div class="loadscreen__content">
+			<p class="loadscreen__text">loading</p>
+			<span class="loadscreen__icon"> <!-- this wrapper for smooth rotate -->
+				<svg><use href="media/img/sprite.svg#icon-spinner"></use></svg>
+			</span>
+		</div>
+	</div>
+}
+
+
+@@if (rotation_alert__isloaded) {
+	<div class="rotation-alert">
+		<p class="rotation-alert__text">Please, turn the device</p>
+		<div class="rotation-alert__image">
+			<div class="rotation-alert__image-outer">
+				<svg><use href="media/img/sprite.svg#icon-round-arrows"></use></svg>
+			</div>
+			<div class="rotation-alert__image-inner">
+				<svg><use href="media/img/sprite.svg#icon-mobile"></use></svg>
+			</div>
+		</div>
+	</div>
+}
+
+
+@@if (isWordPress) {
+	<!-- <?php get_template_part('parts/svg'); ?> -->
+}
+@@if (!isWordPress) {
+	<!-- @@include('parts/svg.html') -->
+}
+
+
+<!-- Developer's tests -->
+@@if (component_test__isloaded) { @@include('../#component-test.html') }
+@@if (template_test__isloaded) { <div class="template-test-block scroll-lock-item-p"><div class="container">@@include('../#templates.html')</div></div> }
+@@if (isLiteBuild) { @@include('../#lite-build.html') }
+
+
+<noscript>
+	<div id="noscript-alert">
+		<p>For full functionality of this site it is necessary to enable JavaScript.<br>Here are the <a href="https://www.enable-javascript.com/">instructions how to enable JavaScript in your web browser</a>.</p><br>
+		<p>Для полной функциональности этого сайта необходимо включить JavaScript.<br>Вот <a href="https://www.enable-javascript.com/ru/">инструкции, как включить JavaScript в вашем браузере</a>.</p>
+	</div>
+	<style>
+		.header { position: relative !important; }
+	</style>
+</noscript>
+
+
+@@if (isWordPress) { <?php wp_footer() ?> }
+@@if (!isWordPress) {
+	@@if (swiper__isloaded) { <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> }
+	@@if (isLiteBuild) { <script src="js/website.script.js"></script> }
+	@@if (!isLiteBuild) { <script src="js/website.script.min.js"></script> }
+}
+</body>
+</html>

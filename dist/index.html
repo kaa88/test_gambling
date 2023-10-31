@@ -1,0 +1,350 @@
+
+
+
+	<!DOCTYPE html>
+	
+	 <html lang="en-US"> 
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		
+			<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
+			<title>New site</title>
+			<meta name="description" content="Description">
+			<meta name="robots" content="noindex, nofollow">
+
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+
+			
+			 <link rel="stylesheet" href="css/website.style.css"> 
+			
+			<link rel="icon" href="media/img/favicon-32.png" sizes="32x32">
+			
+		<!-- end @if !wp -->
+
+		
+	</head>
+
+	<body class="page-home">
+		
+
+
+	
+	<!-------------------- HEADER MENU -------------------->
+	<!--
+		ОСНОВЫ: делать этажи (с контейнером) при любом варианте.
+		Примеры этажей: --main, --menu, --account, --shopping
+		Всё, что нужно скрывать, ставить во wrapper.
+		Scroll_lock: добавить класс 'scroll-lock-item-pm' для уровней, которые скроются в меню,
+		и '...-p' для тех, которые не скроются (level--main).
+	
+		Схема один этаж:
+		header
+			turn-off
+			print-address
+			level
+				container
+					logo
+					burger
+					wrapper
+						close-btn
+						menu
+						optional elems
+
+		Схема два и больше этажа:
+		header
+			turn-off
+			print-address
+			level
+				container
+					logo
+					burger
+			wrapper
+				close-btn
+				level
+					container
+						logo copy
+						elems
+				level
+					container
+						elems
+
+		На этаж можно поставить копию лого, т.к. в CSS перенести сложно
+	-->
+
+	<header class="header header--static">
+		<div class="header-menu-turnoff-area"></div>
+
+		<div class="header-level header-level--main scroll-lock-item-p">
+			<div class="container">
+
+				<div class="header-level__logo logo">
+					<a class="logo__link" href="index.html">
+						LOGO
+					</a>
+				</div>
+			
+				<div class="header-level__button-box">
+					<!-- close-btn только закрывает, open-btn может открывать и закрывать -->
+					<div class="header-menu-open-btn">
+						<svg><use href="media/img/sprite.svg#icon-menu"></use></svg>
+						<!-- для 'Animated Burger' поставить пустой span вместо svg -->
+					</div>
+					<div class="header-menu-close-btn">
+						<svg><use href="media/img/sprite.svg#icon-cross"></use></svg>
+					</div>
+				</div>
+	
+				<!-- script will add current page href if print-address tag is empty -->
+				<div class="header-level__print-address"></div>
+				<div class="header-level__print-address-qr"></div>
+
+			</div>
+		</div>
+
+		<div class="header-menu-hide-wrapper">
+			<!-- header-menu-close-btn можно поставить сюда -->
+
+			<div class="header-level header-level--menu scroll-lock-item-pm">
+				<div class="container">
+					<nav class="header-menu">
+						<ul class="header-menu__items">
+							<!-- список всех ссылок, можно сортировать скриптом -->
+							<li class="header-menu__item" data-linkname="about">
+								<a class="header-menu__link" href="#">About us</a>
+							</li>
+							<li class="header-menu__item" data-linkname="brands">
+								<a class="header-menu__link" href="#">Brands</a>
+							</li>
+							<li class="header-menu__item" data-linkname="commissions">
+								<a class="header-menu__link" href="#">Commissions</a>
+							</li>
+							<li class="header-menu__item" data-linkname="news">
+								<a class="header-menu__link" href="#">News</a>
+							</li>
+							<li class="header-menu__item" data-linkname="contact">
+								<a class="header-menu__link" href="#">Contact us</a>
+							</li>
+							<li class="header-menu__item" data-linkname="careers">
+								<a class="header-menu__link" href="#">Careers</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="header-account">
+						<div class="select">
+							<select class="" name="select">
+								<option value="" disabled selected>Select...</option> <!-- value '' is required for form check -->
+								<option value="en">en</option>
+								<option value="ru">ru</option>
+							</select>
+							<div class="select__header">
+								<span class="select__header-text"></span>
+								<span class="select__header-icon">
+									<svg><use href="media/img/sprite.svg#icon-arrow-short"></use></svg>
+								</span>
+							</div>
+							<div class="select__list-wrapper"><!-- script-filled list of options --></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</header>
+
+	<!-- <div id="wpadminbar" style="z-index: 999; position: fixed; top: 0; left: 0; height: 20px; width: 100%; background-color: #353;"></div> -->
+
+		<!-- end @if wp -->
+
+	<!-- end @if header -->
+
+
+
+	<!-- header-menu-options:
+		список пунктов меню находится в header.html
+		наличие и порядок устанавливаются в массиве 'links' (читает data-атрибут)
+		'activeLink' добавляет класс 'this-page'
+		управляется из 'header metrics', поэтому должен идти перед ним
+		тег '<script>' можно удалить
+	-->
+	<script id="header-menu-options">
+		let headerMenuOptions = {
+			// links: ['home','modal','submenu','contacts'],
+			activeLink: 'home'
+		}
+	</script>
+	<script src="js/website.header_metrics.js"></script>
+	
+<!-- end @if header -->
+
+
+<main class="main">
+
+	<section class="main__section section">
+		<div class="section__container container">
+
+			<h1 class="g-h1">content section1</h1>
+			<h1 class="g-h1">content section2</h1>
+			<h1 class="g-h1">content section3</h1>
+			<h1 class="g-h1">content section4</h1>
+			<h1 class="g-h1">content section5</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+			<h1 class="g-h1">content section</h1>
+
+		</div>
+	</section>
+
+</main>
+
+
+
+	<section class="modal">
+		
+		
+			<div class="modal__window" id="modal-info">
+				<!-- close button addition position is here -->
+				<div class="modal__wrapper">
+
+					<a class="modal__close-button" href="#"> <!-- <a> if you would like to use it as a 'back' button. Dont forget to add 'modal-link' class -->
+						<svg><use href="media/img/sprite.svg#icon-cross"></use></svg>
+					</a>
+					<!-- <a class="modal__back-button modal-link" href="#modal-info">
+						<svg><use href="media/img/sprite.svg#icon-arrow-long"></use></svg>
+					</a> -->
+
+					<div class="modal__content"> <!-- you can add class 'modal__content--dark', it can be used with 'share header' -->
+
+						<p class="modal__test-article" style="font-size: 50px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error porro pariatur dolorem consequuntur totam, a itaque ipsam sed ducimus doloribus? Tempora voluptate ipsa tenetur delectus deleniti aliquam eius, dignissimos pariatur ipsum temporibus omnis deserunt impedit repellendus sapiente veritatis nulla minus perferendis quaerat illo eligendi neque architecto voluptatibus velit placeat alias!</p>
+			
+					</div>
+				</div>
+			</div>
+		
+	</section>
+<!-- end @if modal -->
+
+
+
+ 
+ <footer class="footer">
+
+ 	<section class="footer-top">
+ 		<div class="footer-top__container container">
+
+ 			<h1 class="g-h1">footer</h1>
+
+ 		</div>
+ 	</section>
+
+ 	<section class="footer-bottom">
+ 		<div class="footer-bottom__container container">
+
+ 			<p class="footer-bottom__copy">© Copyright 2022, All Rights Reserved</p>
+ 			<p class="footer-bottom__author">Designed and Developed By Author</p>
+
+ 		</div>
+ 	</section>
+	
+ </footer>
+ <!-- end @if footer -->
+
+
+ 
+
+
+ 
+
+
+ 
+ 
+ 	
+ 
+
+
+ <!-- Developer's tests -->
+ 
+ 
+  <div id="lite-build-notification" class="scroll-lock-item-m">
+  	L
+  	<style>
+  		#lite-build-notification {
+  			position: fixed;
+  			bottom: 0;
+  			right: 0;
+  			z-index: 9999;
+  			width: calc(4vh + 3vw);
+  			height: calc(4vh + 3vw);
+  			display: flex;
+  			justify-content: center;
+  			align-items: center;
+  			font-family: Georgia;
+  			font-weight: bold;
+  			font-size: calc(3vh + 1.5vw);
+  			color: #0e2dda;
+  			background-color: #48f979;
+  			border: solid 0.5vh #ff3535;
+  			border-radius: 50%;
+  			cursor: pointer;
+  		}
+  		.lbn-left {
+  			left: 0;
+  			right: auto;
+  		}
+  	</style>
+  	<script>
+  		let lbn_elem = document.querySelector('#lite-build-notification');
+  		lbn_elem.addEventListener('click', function() {
+  			let side = 'left';
+  			if (this.classList.contains('lbn-left')) side = 'right';
+  			this.classList.toggle('lbn-left');
+  			let d = new Date();
+  			d.setTime(d.getTime() + (10*24*60*60*1000));
+  			document.cookie = `_lite-build-notification=${side}; path=/; expires=${d.toUTCString()}`;
+  		})
+  		let lbn_cookie = decodeURIComponent(document.cookie).split('; '), lbn_cookieObj = {};
+  		for (let i = 0; i < lbn_cookie.length; i++) {
+  			let split = lbn_cookie[i].split('=');
+  			lbn_cookieObj[split[0]] = split[1];
+  		}
+  		lbn_cookie = lbn_cookieObj['_lite-build-notification'];
+  		if (lbn_cookie && lbn_cookie == 'left') lbn_elem.classList.add('lbn-left');
+  	</script>
+  </div> 
+
+
+ <noscript>
+ 	<div id="noscript-alert">
+ 		<p>For full functionality of this site it is necessary to enable JavaScript.<br>Here are the <a href="https://www.enable-javascript.com/">instructions how to enable JavaScript in your web browser</a>.</p><br>
+ 		<p>Для полной функциональности этого сайта необходимо включить JavaScript.<br>Вот <a href="https://www.enable-javascript.com/ru/">инструкции, как включить JavaScript в вашем браузере</a>.</p>
+ 	</div>
+ 	<style>
+ 		.header { position: relative !important; }
+ 	</style>
+ </noscript>
+
+
+ 
+ 
+ 	
+ 	 <script src="js/website.script.js"></script> 
+ 	
+ 
+ </body>
+ </html> 

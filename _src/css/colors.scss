@@ -1,0 +1,36 @@
+// Snippets: cc (var), c (color:var), bgc (bg-color:var), bc (border-color:var)
+
+/* Colors */
+// place the new theme above the basic theme
+// body.theme-dark {
+// 	--color01: #000;
+// 	--color02: #fff;
+// }
+body {
+// I use css-variables because it's easy to add new color themes.
+// Do not set color transition here, it doesn't work with ccs-var that way.
+	--color00: #000;
+	--color01: #fff;
+	--color01a1: #ffffff1f;
+	--color01a2: #ffffff33;
+	--color01a3: #ffffff66;
+	--color01a4: #ffffff99;
+	--color02: #478bf9;
+	--color03: #9dadf2;
+	--color04: #7ddacf;
+	--color05: #6ca2fa;
+	--color06: #110a1d;
+	--color07: #1e1231;
+	--color08: #050505;
+	--color09: #ff0000;
+
+	--colorBgMain: var(--color06);
+	--colorTextMain: var(--color01);
+	--colorBorder: var(--color02);
+	--colorButtonMain: var(--color02);
+	--colorButtonHover: var(--color03);
+}
+
+
+// $gradient01: linear-gradient(315deg, var(--color01) 20%, var(--color02) 80%);
+

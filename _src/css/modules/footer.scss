@@ -1,0 +1,23 @@
+@if $footer__isloaded == true {
+
+.footer {}
+.footer-top {
+	background-color: #999;
+	&__container {}
+}
+.footer-bottom {
+	background-color: #888;
+	&__container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		text-align: center;
+	}
+	&__copy {
+		margin-right: 40px;
+	}
+	&__author {}
+}
+
+} // end @if

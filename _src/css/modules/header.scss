@@ -1,0 +1,382 @@
+@if $header__isloaded == true {
+
+.header {
+	top: var(--header-position); //REQ!
+	left: 0; //REQ!
+	z-index: 51; //REQ!
+	width: 100%; //REQ!
+	max-width: $page-max-width+px; //REQ! set it same as body max-width
+	// font-size: 0; // prevent random margins... careful with 'em'
+
+	// Set 'position' inside these subclasses because it depends on script options. But it is unlikely to change default 'positions' values. Try to work with it first.
+	&--static {
+		position: absolute; //REQ! one
+	}
+	&--fixed {
+		position: fixed; //REQ! one
+	}
+	&--active {}
+	// classes for 'sharing mode', e.g. if 'modal' calls header and uses its close button
+	&--shared {}
+	&--shared-z {
+		z-index: 501;
+	}
+	&--compact {}
+	&--compact .logo__link { // compact mode test
+		@media (min-width: $media-ml+1+px) {font-size: 20px;}
+	}
+}
+
+.header-menu-turnoff-area {
+	position: fixed; //REQ!
+	top: 0; //REQ!
+	left: 0; //REQ!
+	z-index: -10; //REQ!
+	width: 100vw; //REQ!
+	height: 100vh; //REQ!
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(2px);
+	cursor: pointer; // for customer test
+	opacity: 0; //REQ!
+	visibility: hidden; //REQ!
+	transition: opacity $timer-menu, visibility $timer-menu;
+	&.header--active {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.header-level {
+	position: relative; //REQ! for submenu positioning
+	&--main {
+		padding: 10px 0;
+		background-color: lightseagreen;
+		.container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #fff;
+		}
+	}
+	&--menu {
+		background-color: deepskyblue;
+		@media (max-width: $media-ml+px) {
+			flex: 1 1 100%;
+			.container {
+				height: 100%; //REQ! for mobile menu stretch
+			}
+		}
+	}
+	&--account {
+		background-color: #eee;
+	}
+	&--shopping {
+		background-color: #aaa;
+	}
+	&__logo {}
+	&__button-box {
+		position: relative; //REQ!
+		width: 50px;
+		height: 50px;
+		@media (min-width: $media-ml+1+px) {
+			display: none; //REQ!
+		}
+	}
+	&__print-address, &__print-address-qr {display: none;} //REQ!
+
+	@if $isLiteBuild == true {
+		@media (max-width: $media-ml+px) {
+			.account-nav, .shopping-nav { // for TEST
+				display: flex;
+				flex-direction: column;
+				&__link {margin: 8px auto;}
+			}
+		}
+	}
+}
+
+.logo {
+	&__link {
+		font-size: 40px;
+	}
+}
+
+.header-menu-open-btn,
+.header-menu-close-btn,
+.header-submenu-back-btn {
+	position: absolute; //REQ!
+	top: 0; //REQ!
+	left: 0; //REQ!
+	width: 100%; //REQ! if in button-box
+	height: 100%; //REQ! if in button-box
+	display: flex; //REQ!
+	justify-content: center; //REQ!
+	align-items: center; //REQ!
+	cursor: pointer; // for customer test
+	user-select: none; //REQ!
+	transition: opacity $timer-menu, visibility $timer-menu;
+	fill: #333;
+	svg {
+		width: 70%;
+		height: 70%;
+	}
+	@media (min-width: $media-ml+1+px) {
+		display: none; //REQ!
+	}
+}
+.header-menu-open-btn {
+	background-color: limegreen;
+	visibility: visible;
+	opacity: 1;
+	&.header--active {
+		// visibility: hidden;
+		// opacity: 0;
+	}
+}
+.header-menu-close-btn {
+	background-color: crimson;
+	visibility: hidden;
+	opacity: 0;
+	&.header--active, &.header--shared {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+.header-submenu-back-btn {
+	width: 40px;
+	height: 40px;
+	background-color: darkorange;
+	svg {
+		width: 50%;
+		height: 50%;
+		transform: rotate(180deg);
+	}
+}
+
+.header-menu-hide-wrapper, .header-submenu-hide-wrapper {
+	position: relative;
+	background-color: orange;
+	@media (max-width: $media-ml+px) {
+		position: fixed; //REQ!
+		top: calc(var(--header-height) + var(--header-offset)); //REQ! if below header
+		right: -301px; // width + 1px
+		width: 300px;
+		height: calc(var(--window-height) - var(--header-position) - var(--header-height)); //REQ! for mobile browsers with floating panels
+		transition: right $timer-menu;
+		display: flex; //REQ! for mobile menu stretch
+		flex-direction: column;
+		overflow-x: hidden;
+		overflow-y: auto;
+		scrollbar-width: thin;
+		scrollbar-color: crimson transparent;
+		&::-webkit-scrollbar {
+			width: 3px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: crimson;
+		}
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+		&.header--active {
+			right: 0;
+		}
+	}
+	// next two are REQ! for 'hidingHeader' js
+	&.hide-on-switch-to-desktop {
+		@media (min-width: $media-ml+1+px) {
+			display: none;
+		}
+	}
+	&.hide-on-switch-to-mobile {
+		@media (max-width: $media-ml+px) {
+			display: none;
+		}
+	}
+	//
+}
+
+.header-submenu-hide-wrapper {
+	background-color: darkslateblue;
+	@media (min-width: $media-ml+1+px) {
+		position: absolute; //REQ!
+		top: 150%;
+		left: 0;
+		width: 100%;
+		padding: 10px 15px;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity $timer-menu, visibility $timer-menu;
+		&.header--active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.header-menu {
+	background-color: #fff;
+	@media (max-width: $media-ml+px) {
+		height: 100%; //REQ! for mobile menu stretch
+		max-height: 350px;
+		padding: 10px;
+		// Mobile landscape screen apadtive
+		@media (max-height: $media-m+px) {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+	&__items {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: thistle;
+		@media (max-width: $media-ml+px) {
+			height: 100%; //REQ! for mobile menu stretch
+			flex-direction: column;
+		}
+	}
+	&__item {
+		@media (min-width: $media-ml+1+px) {
+			position: relative;
+		}
+	}
+	&__link {
+		display: inline-block; //REQ!
+		height: 50px;
+		line-height: 50px;
+		padding: 0 20px;
+		font-size: 16px;
+		white-space: nowrap;
+		background-color: orange;
+		transition: all $timer-hover;
+		&:hover, &.header--active {
+			background-color: peachpuff;
+		}
+		@media (min-width: $media-ml+1+px) {
+			&.header--active {
+				&:before { // this area prevents turning menu off on mousemove between menu & submenu
+					background-color: yellow;
+					content: '';
+					position: absolute;
+					bottom: -100%;
+					left: 0;
+					display: inline-block;
+					width: 100%;
+					height: 100%;
+					cursor: default;
+				}
+			}
+		}
+	}
+	&--submenu &__link {
+		background-color: lightcoral;
+		&:hover, &.header--active {
+			background-color: sandybrown;
+		}
+	}
+}
+
+.submenu-link {
+	font-weight: bold;
+}
+
+.this-page {
+	pointer-events: none;
+	background-color: peachpuff;
+}
+
+
+// Animated Burger // in 'html' place clean 'span' instead of 'svg'
+
+// Burger transition version
+// .header-menu-open-btn {
+// 	font-size: 16px;
+// 	width: em(50);
+// 	height: em(50);
+// 	overflow: hidden;
+// 	&:before, &:after, & span {
+// 		content: '';
+// 		position: absolute;
+// 		left: em(-1);
+// 		width: 150%;
+// 		height: em(6);
+// 		background-color: #333;
+// 		transform-origin: em(4);
+// 		transition: transform $timer-menu;
+// 	}
+// 	&:before {top: 0;}
+// 	& span {top: em(22);}
+// 	&:after {bottom: 0;}
+// 	&.header--active {
+// 		&:before {transform: rotate(45deg);}
+// 		& span {transform: translateX(100%);}
+// 		&:after {transform: rotate(-45deg);}
+// 	}
+// }
+
+// Burger animation version
+// .header-menu-open-btn {
+// 	font-size: 16px;
+// 	width: em(50);
+// 	height: em(50);
+// 	overflow: hidden;
+// 	opacity: 0; // REQ! for animation
+// 	animation: appearing-animation $timer-menu forwards; // REQ! for animation because when page loads it starts 'back' animation
+// 	&:before, &:after, & span {
+// 		content: '';
+// 		position: absolute;
+// 		left: -20%;
+// 		width: 140%;
+// 		height: em(6);
+// 		background-color: #333;
+// 	}
+// 	&:before {top: 0;}
+// 	& span {top: em(22);}
+// 	&:after {bottom: 0;}
+// 	&.header--active {
+// 		&:before {animation: burger-top-line-animation $timer-menu forwards;}
+// 		& span {animation: burger-mid-line-animation $timer-menu forwards;}
+// 		&:after {animation: burger-bot-line-animation $timer-menu forwards;}
+// 	}
+// 	&:not(.header--active) {
+// 		&:before {animation: burger-top-line-animation-back $timer-menu linear reverse;}
+// 		& span {animation: burger-mid-line-animation-back $timer-menu linear reverse;}
+// 		&:after {animation: burger-bot-line-animation-back $timer-menu linear reverse;}
+// 	}
+// }
+// @keyframes appearing-animation {
+// 	99% { opacity: 0; }
+// 	100% { opacity: 1; }
+// }
+// @keyframes burger-top-line-animation {
+// 	0% { top: 0; transform: rotate(0); }
+// 	50% { top: em(22); transform: rotate(0); }
+// 	100% { top: em(22); transform: rotate(45deg); }
+// }
+// @keyframes burger-mid-line-animation {
+// 	50% { transform: rotate(0); }
+// 	100% { transform: rotate(45deg); }
+// }
+// @keyframes burger-bot-line-animation {
+// 	0% { bottom: 0; }
+// 	50% { bottom: em(22); transform: rotate(0); }
+// 	100% { bottom: em(22); transform: rotate(-45deg); }
+// }
+// @keyframes burger-top-line-animation-back {
+// 	0% { top: em(0); }
+// 	20% { top: em(22); }
+// 	40% { top: em(44); transform: rotate(0); }
+// 	100% { top: em(22); transform: rotate(45deg); }
+// }
+// @keyframes burger-mid-line-animation-back {
+// 	20% { top: em(22); transform: rotate(0); }
+// 	40% { top: em(44); transform: rotate(0); }
+// 	100% { top: em(22); transform: rotate(45deg); }
+// }
+// @keyframes burger-bot-line-animation-back {
+// 	40% { bottom: em(0); transform: rotate(0); }
+// 	100% { bottom: em(22); transform: rotate(-45deg); }
+// }
+
+} // end @if
